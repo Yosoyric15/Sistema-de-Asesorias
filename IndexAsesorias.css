@@ -1,0 +1,196 @@
+/* --- IMPORTACIÓN DE FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+/* --- ANIMACIONES --- */
+@keyframes slideUp { 
+    from { opacity: 0; transform: translateY(30px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(0, 229, 255, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(0, 229, 255, 0.4); }
+    100% { box-shadow: 0 0 5px rgba(0, 229, 255, 0.2); }
+}
+
+/* --- CONFIGURACIÓN BASE --- */
+body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Fondo con overlay dinámico */
+    background: linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.85)), 
+                url('la-ceremonia-se-llevo-a-cabo-en-el-vestibulo-del-emblematico-edificio.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* --- CONTENEDOR PRINCIPAL (CARD) --- */
+.main-wrapper { 
+    max-width: 900px; 
+    width: 100%; 
+    animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); 
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03); /* Efecto cristalino */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* --- TÍTULOS Y SECCIONES --- */
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #fff, #00e5ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #00e5ff;
+    font-size: 1rem;
+    border-left: 4px solid #00e5ff;
+    padding-left: 15px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* --- BUSCADOR ESTILIZADO --- */
+.busqueda {
+    background: rgba(0, 74, 153, 0.4);
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    transition: 0.3s;
+}
+
+.busqueda:focus-within {
+    border-color: #00e5ff;
+    animation: glow 2s infinite;
+}
+
+#search {
+    background: #ffffff !important;
+    color: #000 !important;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    width: 180px;
+    outline: none;
+}
+
+.btn-consultar {
+    background: #00e5ff;
+    color: #002b36;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-consultar:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
+}
+
+/* --- LABELS E INPUTS DE DATOS --- */
+label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: rgba(0, 229, 255, 0.8);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    margin-left: 5px;
+}
+
+input[readonly] {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #1a1a1a !important;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input[readonly]:focus {
+    background: #ffffff !important;
+    transform: scale(1.01);
+}
+
+/* --- CONTENEDOR DE PAGOS (DESPLEGABLE) --- */
+.acordeon-pagos {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin-top: 25px;
+    transition: 0.3s;
+}
+
+summary {
+    padding: 18px;
+    font-family: 'Montserrat', sans-serif;
+    color: #00e5ff;
+    cursor: pointer;
+    text-align: center;
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+summary:hover {
+    background: rgba(0, 229, 255, 0.05);
+}
+
+.grid-comprimido {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Compacto 4x */
+    gap: 20px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.pago-item input {
+    background: #ffffff !important;
+    border: 2px solid #004a99 !important;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+    .grid-comprimido { grid-template-columns: repeat(2, 1fr); }
+    .busqueda { flex-direction: column; }
+    #search { width: 100%; }
+}
